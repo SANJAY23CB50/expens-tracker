@@ -1,0 +1,50 @@
+# Expense Tracker API
+
+A REST API for tracking personal expenses with user authentication.
+
+## Tech Stack
+- Node.js + Express
+- MySQL
+- JWT Authentication
+- bcrypt password hashing
+
+## Setup
+
+1. Clone the repo
+2. Install dependencies:
+   npm install
+
+3. Create a .env file:
+   PORT=3000
+   DB_HOST=localhost
+   DB_USER=expense_user
+   DB_PASSWORD=expense123
+   DB_NAME=expense_tracker
+   JWT_SECRET=mysecretkey123
+
+4. Create MySQL database and tables (see schema below)
+5. Run the server:
+   npm run dev
+
+## API Endpoints
+
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /auth/signup | Register new user |
+| POST | /auth/login | Login and get JWT token |
+
+### Expenses (JWT required)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /expenses | Get all expenses |
+| GET | /expenses?range=week | Filter by past week |
+| GET | /expenses?range=month | Filter by past month |
+| GET | /expenses?range=3months | Filter by past 3 months |
+| GET | /expenses?start=YYYY-MM-DD&end=YYYY-MM-DD | Custom date range |
+| POST | /expenses | Add new expense |
+| PUT | /expenses/:id | Update expense |
+| DELETE | /expenses/:id | Delete expense |
+
+## Expense Categories
+Groceries, Leisure, Electronics, Utilities, Clothing, Health, Others
